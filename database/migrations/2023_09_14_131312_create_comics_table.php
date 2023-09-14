@@ -16,9 +16,8 @@ return new class extends Migration
             $table->string('src', 1024)->nullable();
             $table->string('title', 128);
             $table->string('series', 4024);
-            $table->string('nationality', 64);
+            $table->string('price', 100);
             $table->date('sale_date');
-            $table->unsignedTinyInteger('vote')->nullable();
             $table->timestamps();
         });
     }
