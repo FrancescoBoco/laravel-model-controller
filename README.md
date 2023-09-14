@@ -12,8 +12,8 @@ Come aggiungere un'entità (e relativa CRUD) -> es. pasta, libri, macchine...
 <!-- 1. N.B. l'entità User è già implementata in Laravel -->
 <!-- 2. Creo una migration tramite il comando php artisan make:migration create_NOMETABELLA_table (es. create_pastas_table) -->
 <!-- 3. Riempio la migration con le colonne necessarie -->
-4. Eseguo la migration tramite il comando php artisan migrate
-5. Creo il model associato alla mia entità tramite il comando php artisan make:model NOMEENTITA (es. Pasta)
+<!-- 4. Eseguo la migration tramite il comando php artisan migrate -->
+<!-- 5. Creo il model associato alla mia entità tramite il comando php artisan make:model NOMEENTITA (es. Pasta) -->
 6. Creo il seeder associato alla mia entità tramite il comando php artisan make:seeder NOMEENTITASeeder (es. PastaSeeder)
 7. Riempio il seeder con le operazioni necessarie a creare i salvare i miei dati iniziali (quelli reali)/di test (quelli fake)
 8. Eseguo il seeder con il comando php artisan db:seed --class=NOMEENTITASeeder
