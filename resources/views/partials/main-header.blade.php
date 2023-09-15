@@ -11,7 +11,7 @@
                     <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/contatti">Contatti</a>
+                    <a class="nav-link" href="{{ route('comics.index') }}">Contatti</a>
                 </li>
             </ul>
             </div>
