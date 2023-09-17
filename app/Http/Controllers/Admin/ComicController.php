@@ -21,7 +21,7 @@ class ComicController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.comics.create');
     }
 
     /**
@@ -29,7 +29,17 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $fomrData = $request->all();
+
+        $comic = new Comic();
+        $comic->src = $fomrData['src'];
+        $comic->title = $fomrData['title'];
+        $comic->series = $fomrData['series'];
+        $comic->price = $fomrData['price'];
+        $comic->sale_date = $fomrData['sale_date'];
+        $comic->save();
+
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
     }
 
     /**
@@ -46,7 +56,8 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $comic = Comic::findorfail($id);
+        return view('admin.comics.edit', compact('comic'));
     }
 
     /**
@@ -54,7 +65,20 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+     
+        $comic = Comic::findorfail($id);
+
+        $fomrData = $request->all();
+        
+        $comic->src = $fomrData['src'];
+        $comic->title = $fomrData['title'];
+        $comic->series = $fomrData['series'];
+        $comic->price = $fomrData['price'];
+        $comic->sale_date = $fomrData['sale_date'];
+        $comic->save();
+
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
+ 
     }
 
     /**
@@ -62,6 +86,10 @@ class ComicController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $comic = Comic::findorfail($id);
+        
+        $comic->delete();
+
+        return redirect()->route('comics.index');
     }
 }
