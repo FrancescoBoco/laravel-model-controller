@@ -29,18 +29,7 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $fomrData = $request->all();
-
-        $comic = new Comic();
-        $comic->src = $fomrData['src'];
-        $comic->title = $fomrData['title'];
-        $comic->series = $fomrData['series'];
-        $comic->price = $fomrData['price'];
-        $comic->sale_date = $fomrData['sale_date'];
-        $comic->save();
-
-        return redirect()->route('comics.show', ['comic' => $comic->id]);
-
+        
         $request->validate([
             'title'=>'max:128|string|required',
             'src'=>'nullable|max:1024',
@@ -58,6 +47,19 @@ class ComicController extends Controller
             'sale_date.date'=> 'Deve essere una data',
             
         ]);
+
+        $fomrData = $request->all();
+
+        $comic = new Comic();
+        $comic->src = $fomrData['src'];
+        $comic->title = $fomrData['title'];
+        $comic->series = $fomrData['series'];
+        $comic->price = $fomrData['price'];
+        $comic->sale_date = $fomrData['sale_date'];
+        $comic->save();
+
+        return redirect()->route('comics.show', ['comic' => $comic->id]);
+
     
     }
 
@@ -89,6 +91,8 @@ class ComicController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        
+       
      
         $comic = Comic::findorfail($id);
 

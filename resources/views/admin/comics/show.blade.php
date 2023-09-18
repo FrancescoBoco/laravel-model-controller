@@ -20,6 +20,7 @@ Homepage
             <div class="card-body">
                 <h5 class="card-title">{{ $comic->title }}</h5>
                 <p class="card-text">{{ $comic->series }}</p>
+                <p class="card-text">{{ $comic->price }}</p>
                 <p class="card-text">Sale date {{ $comic->sale_date }}</p>
             </div>
         </div>

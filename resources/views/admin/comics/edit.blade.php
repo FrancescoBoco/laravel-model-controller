@@ -27,8 +27,14 @@ Homepage
                 </div>
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">title</label>
-                    <input type="text" class="form-control" id="title" name="title" placeholder="title"  value="{{ $comic->title }}" required>
+                    <label for="title" class="form-labe">title</label>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="title"
+                     name="title" placeholder="title"  value="{{ $comic->title }}" required>
+                     @error('title')
+                         <div class="alert alert-danger">
+                            {{ $message }}
+                         </div>
+                     @enderror
                 </div>
 
                 <div class="mb-3">
@@ -38,7 +44,9 @@ Homepage
 
                 <div class="mb-3">
                     <label for="price" class="form-label">price</label>
-                    <input type="text" class="form-control" id="price" name="price" placeholder="price"  value="{{ $comic->price }}" required>
+                    <input type="text" class="form-control @error('price') is-invalid @enderror" 
+                    id="price" name="price" placeholder="price"  value="{{ $comic->price }} {{ old('price') }}" required>
+
                 </div>
 
                 <div class="mb-3">
